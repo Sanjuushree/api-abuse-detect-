@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: api-abuse-detector
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python run.py
+    envVars:
+      - key: PORT
+        value: 8000

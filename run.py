@@ -4,9 +4,12 @@ import os
 
 from app.server import serve
 
+default_host = os.environ.get("HOST", "0.0.0.0")
+default_port = int(os.environ.get("PORT", "8000"))
+
 ap = argparse.ArgumentParser()
-ap.add_argument("--host", default="127.0.0.1")
-ap.add_argument("--port", type=int, default=8000)
+ap.add_argument("--host", default=default_host)
+ap.add_argument("--port", type=int, default=default_port)
 ap.add_argument("--no-demo", action="store_true", help="disable the built-in normal-traffic generator")
 ap.add_argument("--fresh", action="store_true", help="delete the old database first")
 a = ap.parse_args()
